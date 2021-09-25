@@ -8,23 +8,23 @@ public class Capteur {
 	
 	//Trouver les ports correspondant au bon capteur;
 	
-	Port p1 = lejos.hardware.port.SensorPort.S1;
-	Port p2 = lejos.hardware.port.SensorPort.S2;
-	Port p3 = lejos.hardware.port.SensorPort.S3;
-	Port p4 = lejos.hardware.port.SensorPort.S4;
+	private Port p1 = lejos.hardware.port.SensorPort.S1;
+	private Port p2 = lejos.hardware.port.SensorPort.S2;
+	private Port p3 = lejos.hardware.port.SensorPort.S3;
+	private Port p4 = lejos.hardware.port.SensorPort.S4;
 	
 	//Initialisation des instances des 3 capteur (Ultrason,Couleur et tactil)
 	
-	EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p1);
-	EV3ColorSensor capteurCo = new EV3ColorSensor(p2);
-	EV3TouchSensor capteurTa = new EV3TouchSensor(p3);
+	private EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p1);
+	private EV3ColorSensor capteurCo = new EV3ColorSensor(p2);
+	private EV3TouchSensor capteurTa = new EV3TouchSensor(p3);
 	
 	
-	//Tableau de Float contennant les données des différent capteur
+	//Tableau de Float contennant les donnÃ©es des diffÃ©rent capteur
 	
-	float[] donneeSe = new float[1];
-	//float[] donneeCo = new float[];
-	float[] donneeTa = new float[1];
+	private float[] donneeSe = new float[1];
+	//private float[] donneeCo = new float[];
+	private float[] donneeTa = new float[1];
 	
 	//Allume le capteur UltraSon
 	
@@ -46,7 +46,7 @@ public class Capteur {
 	
 	public void distanceOb(){
 		
-		//Retourne une String pour voir qu'elle résultat cela nous donne
+		//Retourne une String pour voir qu'elle rÃ©sultat cela nous donne
 		// SampleProvider ?
 		
 		System.out.println("=== Capteur ultrason ==");
@@ -83,7 +83,7 @@ public class Capteur {
 		}
 	}
 
-	//Donner l'ID de la couleur détecter par le capteur de couleur
+	//Donner l'ID de la couleur dÃ©tecter par le capteur de couleur
 	
 	public int couleurDetectee(){
 		
