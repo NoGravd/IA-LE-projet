@@ -11,13 +11,13 @@ public class Capteur {
 	private Port p1 = lejos.hardware.port.SensorPort.S1;
 	private Port p2 = lejos.hardware.port.SensorPort.S2;
 	private Port p3 = lejos.hardware.port.SensorPort.S3;
-	private Port p4 = lejos.hardware.port.SensorPort.S4;
+//	private Port p4 = lejos.hardware.port.SensorPort.S4;
 	
 	//Initialisation des instances des 3 capteur (Ultrason,Couleur et tactil)
 	
-	private EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p1);
-	private EV3ColorSensor capteurCo = new EV3ColorSensor(p2);
-	private EV3TouchSensor capteurTa = new EV3TouchSensor(p3);
+	private EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p3);
+	private EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
+	private EV3TouchSensor capteurTa = new EV3TouchSensor(p2);
 	
 	
 	//Tableau de Float contennant les données des différent capteur
@@ -66,21 +66,22 @@ public class Capteur {
 		
 	}
 	
-	//Permet de savoir si le capteur Tactile est activee
+	//Permet de savoir si le capteur Tactile est activee (il detect qlqch)
 	
 	public boolean capteurTactileActif(){
 		
 		capteurTa.getTouchMode().fetchSample(donneeTa, 0);
 		
 		if(donneeTa[0] == 1){
-			
+			System.out.print("T");
 			return true;
 			
 		}else{
-			
+			System.out.print("F");
 			return false;
 			
 		}
+//		System.out.println(capteurTa.getTouchMode().fetchSample(donneeTa, 0));
 	}
 
 	//Donner l'ID de la couleur détecter par le capteur de couleur
