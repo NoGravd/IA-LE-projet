@@ -3,8 +3,8 @@ import lejos.hardware.motor.Motor;
 
 public class Detection {
 
-	//Classe qui permet de detecter la nature, la distance et direction d'un obstacle à l'aide d'un 360 degres sur soit meme
-	//A mettre à jour avec la classe moteur et Capteur
+	//Classe qui permet de detecter la nature, la distance et direction d'un obstacle Ã  l'aide d'un 360 degres sur soit meme
+	//A mettre Ã  jour avec la classe moteur et Capteur
 	
 	
 	private int directionFace = 0;
@@ -12,7 +12,7 @@ public class Detection {
 	
 	private int directionObstacle = 0;
 	private float distanceObstacle = 0;
-	private boolean obstacleEstPallet = false;
+	private boolean obstacleEstPalet = false;
 
 	private Capteur capteurs = new Capteur();
 	
@@ -21,7 +21,7 @@ public class Detection {
 	
 	public int getDirectionObstacle(){
 		
-		//Permet d'obtenir la direction en ° de l'obstacle
+		//Permet d'obtenir la direction en Â° de l'obstacle
 		
 		return directionObstacle;
 		
@@ -30,7 +30,7 @@ public class Detection {
 	
 	private void clearTableauDistance(){
 		
-		//Permet de remettre à 0 le tableau des distances 
+		//Permet de remettre Ã  0 le tableau des distances 
 		
 		distance360 = new float[360];
 		
@@ -38,7 +38,7 @@ public class Detection {
 	
 	private void actualiserDirectionFace(){
 		
-		//Permet d'avoir une direction toujours inférieur à 360
+		//Permet d'avoir une direction toujours infÃ©rieur Ã  360
 		
 		if(directionFace >= 360){
 			
@@ -81,13 +81,13 @@ public class Detection {
 				
 					directionObstacle = i-1;
 					distanceObstacle = distance360[i];
-					obstacleEstPallet = true;
+					obstacleEstPalet = true;
 				
 				}else{				//Si ce n'est pas un paller
 					
 					directionObstacle = i-1;
 					distanceObstacle = distance360[i];
-					obstacleEstPallet = false;		
+					obstacleEstPalet = false;		
 				}
 			}
 			i++;
