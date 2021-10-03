@@ -1,5 +1,6 @@
 import lejos.hardware.Button;
 import lejos.utility.Delay;
+import notreCode.Capteur;
 import lejos.hardware.motor.*;
 import lejos.hardware.port.Port;
 import lejos.hardware.port.SensorPort;
@@ -19,17 +20,6 @@ public class TestNono {
 //	static final EV3UltrasonicSensor usS = (EV3UltrasonicSensor) SensorPort.S2;
 	static boolean etatPince = false; // false = fermé ; true = ouvert
 	
-//	
-//	static private Port p1 = lejos.hardware.port.SensorPort.S1;
-//	static private Port p2 = lejos.hardware.port.SensorPort.S2;
-//	static private Port p3 = lejos.hardware.port.SensorPort.S3;
-////	private Port p4 = lejos.hardware.port.SensorPort.S4;
-//	
-//	//Initialisation des instances des 3 capteur (Ultrason,Couleur et tactil)
-//	
-//	static private EV3UltrasonicSensor capteurUs = new EV3UltrasonicSensor(p3);
-//	static private EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
-//	static private EV3TouchSensor capteurTo = new EV3TouchSensor(p2);
 	
 	
 //	sensor1 = couleur
@@ -46,7 +36,7 @@ public class TestNono {
 //		}
 		//accélération
 		int nAcc = 200; //definition du nb de marches d'accélération
-		int maxSpeed = 300; //vitesse max = 100xVbatterie
+		int maxSpeed = 500; //vitesse max = 100xVbatterie
 		for (int i=0; i<nAcc; i++) {
 			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
 			mC.setSpeed(maxSpeed/nAcc*i);
@@ -61,6 +51,75 @@ public class TestNono {
 //		mA.stop();
 //		mA.endSynchronization();
 	}
+ 	
+ 	public static void avanceTQmur(float distanceMin) {
+ 		Port p3 = lejos.hardware.port.SensorPort.S3;
+		EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p3);
+		capteurSe.enable();
+		float[] f = new float[1];
+		capteurSe.getDistanceMode().fetchSample(f, 0);
+		int nAcc = 200; //definition du nb de marches d'accélération
+		int maxSpeed = 500; //vitesse max = 100xVbatterie
+		for (int i=0; i<nAcc; i++) {
+			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
+			mC.setSpeed(maxSpeed/nAcc*i);
+			mA.forward();//lance le moteur 
+			mC.forward();
+			Delay.msDelay(1);
+			// attend 3ms
+		}
+		while(f[0]>distanceMin) {
+			mA.forward();//lance le moteur 
+			mC.forward();
+			Delay.msDelay(1);
+			capteurSe.getDistanceMode().fetchSample(f, 0);
+		}
+		stopM();
+		capteurSe.disable();
+		
+//		mA.synchronizeWith(l);
+//		mA.startSynchronization();
+//		mC.stop();
+//		mA.stop();
+//		mA.endSynchronization();
+	}
+ 	
+ 	public static void avanceTQPression() {
+ 		Port p2 = lejos.hardware.port.SensorPort.S2;
+		TouchSensor capteurTa = new TouchSensor(p2);
+		int nAcc = 200; //definition du nb de marches d'accélération
+		int maxSpeed = 500; //vitesse max = 100xVbatterie
+		for (int i=0; i<nAcc; i++) {
+			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
+			mC.setSpeed(maxSpeed/nAcc*i);
+			mA.forward();//lance le moteur 
+			mC.forward();
+			Delay.msDelay(1);
+			//attend 3ms
+		}
+		int i =1;
+		while (capteurTa.isPressed()==false) {
+			mA.forward();
+			//Button.ENTER.waitForPress();
+			//lance le moteur 
+			//mC.forward();
+			Delay.msDelay(1);
+		}
+		stopM();
+		
+//		mA.synchronizeWith(l);
+//		mA.startSynchronization();
+//		mC.stop();
+//		mA.stop();
+//		mA.endSynchronization();
+	}
+ 	
+ 	public static void avanceTQpalet() {
+ 		Port p2 = lejos.hardware.port.SensorPort.S2;
+ 		EV3TouchSensor capteurTa = new EV3TouchSensor (p2);
+// 		capteurTa.getTouchMode().fetchSample(sample, offset);
+ 		
+ 	}
  	
  	public static void stopM() {
  		mA.synchronizeWith(l);
@@ -119,15 +178,41 @@ public class TestNono {
 	
 	public static void main(String[] args) {
 		
-//		Capteur tS = new Capteur();
+		Port p1 = lejos.hardware.port.SensorPort.S1;
+		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
+		
+		try {
+			
+			System.out.println(capteurCo.getColorID());
+			Button.ENTER.waitForPress();
+			
+			} catch (Throwable t) {
+				t.printStackTrace();
+				Delay.msDelay(10000);
+				System.exit(0);
+			}
+		
+//			avanceTQmur((float)0.4);
+			
+			
+		
+		/*Capteur c = new Capteur();
+		c.distanceOb();
+		System.out.println(c.donneeSe[0]);*/
+		
+		
+		
+		
+		
+		
+		
+//		fPince();
+//		avance();
+////		if (tS.capteurTactileActif())
+////			fPince();
 //		
-		fPince();
-		avance();
-//		if (tS.capteurTactileActif())
-//			fPince();
-		
-		recule();
-		
+//		recule();
+//		
 		
 		
 		/**
