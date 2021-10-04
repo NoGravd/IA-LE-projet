@@ -58,15 +58,29 @@ public class Detection {
 		
 		while(i<=360){
 			
-			moteurC.rotate(1);
+			
 			capteurs.demarrerLeCapteurUltraSon();
 			capteurs.distanceOb();
-			distance360[i] = capteurs.getDistanceOb();		
+			distance360[i] = capteurs.getDistanceOb();
+			moteurC.rotate(1);
 			i++;
 		}
 		
 		actualiserDirectionFace();
 	}
+	
+	public void tourneVersPlusProche (){
+				tourSurSoiMemeDetection();
+				float minimum = 3;
+				int degre = 0;
+				for(int i; i<360; i++) {
+					if (distance360[i]<minimum) {
+						minimum = distance360[i];
+						degre = i;
+					}
+				}
+				moteurC.rotate(degre);
+			}
 	
 //	public void directionDeLobstacle(){
 //		
