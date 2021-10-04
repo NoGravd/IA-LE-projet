@@ -1,5 +1,6 @@
 import lejos.hardware.motor.BaseRegulatedMotor;
 import lejos.hardware.motor.Motor;
+import notreCode.Capteur;
 
 public class Detection {
 
@@ -50,7 +51,7 @@ public class Detection {
 	
 	public void tourSurSoiMemeDetection(){
 		
-		//Fait un tour sur soit meme est prends une mesure a chaque degres
+		//Fait un tour sur soi meme est prend une mesure a chaque degres
 		
 		int i=0;
 		clearTableauDistance();
@@ -67,32 +68,32 @@ public class Detection {
 		actualiserDirectionFace();
 	}
 	
-	public void directionDeLobstacle(){
-		
-		
-		int i =0;
-		float valeurPrec = distance360[0];
-		
-		while(i < 360){
-			
-			if(valeurPrec > distance360[i]){
-				
-				if(){				//Si c'est un pallet
-				
-					directionObstacle = i-1;
-					distanceObstacle = distance360[i];
-					obstacleEstPalet = true;
-				
-				}else{				//Si ce n'est pas un paller
-					
-					directionObstacle = i-1;
-					distanceObstacle = distance360[i];
-					obstacleEstPalet = false;		
-				}
-			}
-			i++;
-		}
-	}
+//	public void directionDeLobstacle(){
+//		
+//		
+//		int i =0;
+//		float valeurPrec = distance360[0];
+//		
+//		while(i < 360){
+//			
+//			if(valeurPrec > distance360[i]){
+//				
+//				if(){				//Si c'est un pallet
+//				
+//					directionObstacle = i-1;
+//					distanceObstacle = distance360[i];
+//					obstacleEstPalet = true;
+//				
+//				}else{				//Si ce n'est pas un paller
+//					
+//					directionObstacle = i-1;
+//					distanceObstacle = distance360[i];
+//					obstacleEstPalet = false;		
+//				}
+//			}
+//			i++;
+//		}
+//	}
 	
 	
 	

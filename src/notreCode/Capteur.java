@@ -7,94 +7,84 @@ import lejos.hardware.port.*;
 
 public class Capteur {
 	
-	//Trouver les ports correspondant au bon capteur;
-	
+	//Trouver les ports correspondant au bon capteurs
 	private Port p1 = lejos.hardware.port.SensorPort.S1;
 	private Port p2 = lejos.hardware.port.SensorPort.S2;
 	private Port p3 = lejos.hardware.port.SensorPort.S3;
-//	private Port p4 = lejos.hardware.port.SensorPort.S4;
 	
-	//Initialisation des instances des 3 capteur (Ultrason,Couleur et tactil)
 	
+	
+	//Initialisation des instances des 3 capteurs (Ultrason,Couleur et Tactile)
 	private EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p3);
 	private EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
 	private EV3TouchSensor capteurTa = new EV3TouchSensor(p2);
 	
 	
-	//Tableau de Float contennant les données des différent capteur
 	
-	public float[] donneeSe = new float[1];
-	//private float[] donneeCo = new float[];
-	private float[] donneeTa = new float[1];
+	//Tableau de Float contenant les donnees des differents capteurs
+	public float[] donneeSe = new float[1];//ultrason
+	public float[] donneeCo = new float[1];//couleur
+	public float[] donneeTa = new float[1];//tactile actif
+	
+	
 	
 	//Allume le capteur UltraSon
-	
-	public void demarrerLeCapteurUltraSon(){
-		
+	public void demarrerLeCapteurUltraSon() {
 		capteurSe.enable();
-		
 	}
 	
 	//Eteindre le capteur UltraSon
-	
-	public void eteindreLeCapteurUltraSon(){
-			
+	public void eteindreLeCapteurUltraSon() {
 		capteurSe.disable();
-		
 	}
 	
-	//Affecte la distance de l'obstacle le plus proche en metre dans le tableau
-	
-	public void distanceOb(){
+	//Affecte la distance de l'obstacle le plus proche et met dans le tableau
+	public void distanceOb() {
+		//Donne le rslt en String
 		
-		//Retourne une String pour voir qu'elle resultat cela nous donne
 		// SampleProvider ?
 		
-		//System.out.println("=== Capteur ultrason ==");
-		
-		//System.out.println("getName = "+capteurSe.getName());
-		//System.out.println("getDistanceMode = "+capteurSe.getDistanceMode());
+		//debug :
+//		System.out.println("=== Capteur ultrason ===");
+//		System.out.println("getName = "+capteurSe.getName());
+//		System.out.println("getDistanceMode = "+capteurSe.getDistanceMode());
 		
 		capteurSe.enable();
-		capteurSe.getDistanceMode(); //.fetchSample(donneeSe, 0);
+		capteurSe.getDistanceMode(); 
+		//debug
+		capteurSe.fetchSample(donneeSe, 0);
+		System.out.println("getDistanceMode = "+donneeSe);
+		//debug
 		capteurSe.disable();
-		
 	}
 	
 	//Donne la distance de l'obstacle le plus proche (en Metre)
-	
-	public float getDistanceOb(){
-		
+	public float getDistanceOb() {
 		return donneeSe[0];
-		
 	}
 	
-	//Permet de savoir si le capteur Tactile est activee (il detect qlqch)
 	
-	public boolean capteurTactileActif(){
-		
+	
+	//Permet de savoir si le capteur Tactile est actif (il detect qlqch)
+	public boolean capteurTactileActif() {
 		capteurTa.getTouchMode().fetchSample(donneeTa, 0);
 		
-		if(donneeTa[0] == 1){
+		if(donneeTa[0] == 1) {
 			System.out.print("T");
 			return true;
-			
-		}else{
+		} else {
 			System.out.print("F");
 			return false;
-			
 		}
-//		System.out.println(capteurTa.getTouchMode().fetchSample(donneeTa, 0));
+//		System.out.println(capteurTa.getTouchMode().fetchSample(donneeTa, 0));//debug
 	}
-
-	//Donner l'ID de la couleur détecter par le capteur de couleur
 	
-	public int couleurDetectee(){
-		
-		//Une fonction qui est capable de donner la couleur en mode RGB
-		
+	
+	
+	//Donner l'ID de la couleur detectee par le capteur de couleur
+	public int couleurDetectee() {
+		//Donne la couleur en mode RGB
 		return capteurCo.getColorID();
-		
 	}
 	
 }
