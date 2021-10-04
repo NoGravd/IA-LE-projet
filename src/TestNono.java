@@ -56,24 +56,30 @@ public class TestNono {
  		Port p3 = lejos.hardware.port.SensorPort.S3;
 		EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p3);
 		capteurSe.enable();
+<<<<<<< HEAD
 		float[] distance = new float[1];
 		int dt=1; //echantillonnage temporel en ms
 		capteurSe.getDistanceMode().fetchSample(distance, 0);
 		int nAcc = 200; //definition du nb de marches d'accÃ©lÃ©ration
+=======
+		float[] f = new float[1];
+		capteurSe.getDistanceMode().fetchSample(f, 0);
+		int nAcc = 200; //definition du nb de marches d'accélération
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 		int maxSpeed = 500; //vitesse max = 100xVbatterie
 		for (int i=0; i<nAcc; i++) {
 			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
 			mC.setSpeed(maxSpeed/nAcc*i);
 			mA.forward();//lance le moteur 
 			mC.forward();
-			Delay.msDelay(dt);// attend dt ms
+			Delay.msDelay(1);
+			// attend 3ms
 		}
-		while(distance[0]>distanceMin) {
+		while(f[0]>distanceMin) {
 			mA.forward();//lance le moteur 
 			mC.forward();
-			Delay.msDelay(dt); // attend dt ms
-			capteurSe.getDistanceMode().fetchSample(distance, 0);//mesure la distance et met la valeur dans distance
-			System.out.println("dist = "+distance[0]);//debug
+			Delay.msDelay(1);
+			capteurSe.getDistanceMode().fetchSample(f, 0);
 		}
 		stopM();
 		capteurSe.disable();
@@ -95,16 +101,20 @@ public class TestNono {
 			mC.setSpeed(maxSpeed/nAcc*i);
 			mA.forward();//lance le moteur 
 			mC.forward();
-			Delay.msDelay(1);//attend 1ms
+			Delay.msDelay(1);
+			//attend 3ms
 		}
-		int ii =1; //compteur de boucle
+		int i =1;
 		while (capteurTa.isPressed()==false) {
+<<<<<<< HEAD
 			ii++;//incrÃ©ment boucle
+=======
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 			mA.forward();
-			mC.forward();
 			//Button.ENTER.waitForPress();
 			//lance le moteur 
-			Delay.msDelay(1);//attend 1ms
+			//mC.forward();
+			Delay.msDelay(1);
 		}
 		stopM();
 		
@@ -175,28 +185,11 @@ public class TestNono {
 				stopM();
 	}
 	
- 	public static void testSe(float distanceMin) {
- 		//lance le capteur ultraSon et affiche la distance sur le robot
- 		// distanceMin et la distance min pour sortir de la boucle
- 		// objectif : tester les conditions de detection (distance, angle, taille)
- 		// @author NG 031021
- 		Port p3 = lejos.hardware.port.SensorPort.S3;
-		EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p3);
-		capteurSe.enable();
-		float[] f = new float[1];
-		capteurSe.getDistanceMode().fetchSample(f, 0);
-		while(f[0]>distanceMin) {
-			Delay.msDelay(10);
-			capteurSe.getDistanceMode().fetchSample(f, 0);
-			System.out.println("dist = "+f[0]);
-		}
-		capteurSe.disable();
-		Delay.msDelay(5000);
-	}
 	
 	
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 		Detection d = new Detection();
 		d.tourneVersPlusProche();
 		
@@ -219,6 +212,24 @@ public class TestNono {
 //			testSe((float)0.2); //OK
 //			avanceTQPression(); //nOK
 // ---------test nono 03/10		
+=======
+		Port p1 = lejos.hardware.port.SensorPort.S1;
+		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
+		
+		try {
+			
+			System.out.println(capteurCo.getColorID());
+			Button.ENTER.waitForPress();
+			
+			} catch (Throwable t) {
+				t.printStackTrace();
+				Delay.msDelay(10000);
+				System.exit(0);
+			}
+		
+//			avanceTQmur((float)0.4);
+			
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 			
 		
 		/*Capteur c = new Capteur();
