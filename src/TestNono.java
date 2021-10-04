@@ -18,7 +18,7 @@ public class TestNono {
 //	static final EV3ColorSensor cS = (EV3ColorSensor) SensorPort.S1;
 //	static final EV3TouchSensor tS = (EV3TouchSensor) SensorPort.S3;
 //	static final EV3UltrasonicSensor usS = (EV3UltrasonicSensor) SensorPort.S2;
-	static boolean etatPince = false; // false = fermé ; true = ouvert
+	static boolean etatPince = false; // false = fermÃ© ; true = ouvert
 	
 	
 	
@@ -34,8 +34,8 @@ public class TestNono {
 //			mC.forward();
 //			Delay.msDelay(TIME);
 //		}
-		//accélération
-		int nAcc = 200; //definition du nb de marches d'accélération
+		//accÃ©lÃ©ration
+		int nAcc = 200; //definition du nb de marches d'accÃ©lÃ©ration
 		int maxSpeed = 500; //vitesse max = 100xVbatterie
 		for (int i=0; i<nAcc; i++) {
 			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
@@ -59,7 +59,7 @@ public class TestNono {
 		float[] distance = new float[1];
 		int dt=1; //echantillonnage temporel en ms
 		capteurSe.getDistanceMode().fetchSample(distance, 0);
-		int nAcc = 200; //definition du nb de marches d'accélération
+		int nAcc = 200; //definition du nb de marches d'accÃ©lÃ©ration
 		int maxSpeed = 500; //vitesse max = 100xVbatterie
 		for (int i=0; i<nAcc; i++) {
 			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
@@ -88,7 +88,7 @@ public class TestNono {
  	public static void avanceTQPression() {
  		Port p2 = lejos.hardware.port.SensorPort.S2;
 		TouchSensor capteurTa = new TouchSensor(p2);
-		int nAcc = 200; //definition du nb de marches d'accélération
+		int nAcc = 200; //definition du nb de marches d'accÃ©lÃ©ration
 		int maxSpeed = 500; //vitesse max = 100xVbatterie
 		for (int i=0; i<nAcc; i++) {
 			mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
@@ -99,7 +99,7 @@ public class TestNono {
 		}
 		int ii =1; //compteur de boucle
 		while (capteurTa.isPressed()==false) {
-			ii++;//incrément boucle
+			ii++;//incrÃ©ment boucle
 			mA.forward();
 			mC.forward();
 			//Button.ENTER.waitForPress();
@@ -144,7 +144,7 @@ public class TestNono {
 	}
 	
 	public static void oPince() {
-		if (!etatPince) {//si pinces fermées
+		if (!etatPince) {//si pinces fermÃ©es
 			mP.forward();
 			Delay.msDelay(TIMEPINCE);
 			mP.stop();
@@ -162,8 +162,8 @@ public class TestNono {
 	}
 	
 	public static void recule() {
-		//accélération
-				int nAcc = 200; //definition du nb de marches d'accélération
+		//accÃ©lÃ©ration
+				int nAcc = 200; //definition du nb de marches d'accÃ©lÃ©ration
 				int maxSpeed = 300; //vitesse max = 100xVbatterie
 				for (int i=0; i<nAcc; i++) {
 					mA.setSpeed(maxSpeed/nAcc*i);//change la vitesse
@@ -196,6 +196,9 @@ public class TestNono {
 	
 	
 	public static void main(String[] args) {
+		
+		Detection d = new Detection();
+		d.tourneVersPlusProche();
 		
 //		Port p1 = lejos.hardware.port.SensorPort.S1;
 //		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
