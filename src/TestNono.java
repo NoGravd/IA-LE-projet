@@ -58,11 +58,14 @@ public class TestNono {
 		capteurSe.enable();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		float[] distance = new float[1];
 		int dt=1; //echantillonnage temporel en ms
 		capteurSe.getDistanceMode().fetchSample(distance, 0);
 		int nAcc = 200; //definition du nb de marches d'accélération
 =======
+=======
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 =======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
 		float[] f = new float[1];
@@ -111,7 +114,10 @@ public class TestNono {
 		while (capteurTa.isPressed()==false) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			ii++;//incrément boucle
+=======
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 =======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
 =======
@@ -197,6 +203,7 @@ public class TestNono {
 		
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Detection d = new Detection();
 		d.tourneVersPlusProche();
 		
@@ -228,6 +235,11 @@ public class TestNono {
 		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
 		
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
+=======
+		Port p1 = lejos.hardware.port.SensorPort.S1;
+		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
+		
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 		try {
 			
 			System.out.println(capteurCo.getColorID());
@@ -242,6 +254,9 @@ public class TestNono {
 //			avanceTQmur((float)0.4);
 			
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
+=======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
 =======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
