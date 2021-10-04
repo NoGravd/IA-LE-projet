@@ -51,7 +51,11 @@ public class Detection {
 	public void tourSurSoiMemeDetection(){
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//Fait un tour sur soi meme et prend une mesure a chaque degres
+=======
+		//Fait un tour sur soit meme est prends une mesure a chaque degres
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 =======
 		//Fait un tour sur soit meme est prends une mesure a chaque degres
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
@@ -72,6 +76,7 @@ public class Detection {
 		actualiserDirectionFace();
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 	public void tourneVersPlusProche (){
 				tourSurSoiMemeDetection();
@@ -113,6 +118,8 @@ public class Detection {
 //		}
 //	}
 =======
+=======
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 	public void directionDeLobstacle(){
 		
 		
@@ -139,6 +146,9 @@ public class Detection {
 			i++;
 		}
 	}
+<<<<<<< HEAD
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
+=======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
 	
 	

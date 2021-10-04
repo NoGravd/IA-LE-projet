@@ -57,11 +57,14 @@ public class TestNono {
 		EV3UltrasonicSensor capteurSe = new EV3UltrasonicSensor(p3);
 		capteurSe.enable();
 <<<<<<< HEAD
+<<<<<<< HEAD
 		float[] distance = new float[1];
 		int dt=1; //echantillonnage temporel en ms
 		capteurSe.getDistanceMode().fetchSample(distance, 0);
 		int nAcc = 200; //definition du nb de marches d'accÃ©lÃ©ration
 =======
+=======
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 		float[] f = new float[1];
 		capteurSe.getDistanceMode().fetchSample(f, 0);
 		int nAcc = 200; //definition du nb de marches d'accélération
@@ -107,7 +110,10 @@ public class TestNono {
 		int i =1;
 		while (capteurTa.isPressed()==false) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			ii++;//incrÃ©ment boucle
+=======
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 =======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
 			mA.forward();
@@ -190,6 +196,7 @@ public class TestNono {
 	public static void main(String[] args) {
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		Detection d = new Detection();
 		d.tourneVersPlusProche();
 		
@@ -216,6 +223,11 @@ public class TestNono {
 		Port p1 = lejos.hardware.port.SensorPort.S1;
 		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
 		
+=======
+		Port p1 = lejos.hardware.port.SensorPort.S1;
+		EV3ColorSensor capteurCo = new EV3ColorSensor(p1);
+		
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
 		try {
 			
 			System.out.println(capteurCo.getColorID());
@@ -229,6 +241,9 @@ public class TestNono {
 		
 //			avanceTQmur((float)0.4);
 			
+<<<<<<< HEAD
+>>>>>>> parent of 5e8f43c (les petites corrections du nono)
+=======
 >>>>>>> parent of 5e8f43c (les petites corrections du nono)
 			
 		
