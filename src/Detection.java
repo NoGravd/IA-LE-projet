@@ -51,7 +51,7 @@ public class Detection {
 	
 	public void tourSurSoiMemeDetection(){
 		
-		//Fait un tour sur soi meme est prend une mesure a chaque degres
+		//Fait un tour sur soi meme et prend une mesure a chaque degres
 		
 		int i=0;
 		clearTableauDistance();
