@@ -73,7 +73,7 @@ public class Detection {
 				tourSurSoiMemeDetection();
 				float minimum = 3;
 				int degre = 0;
-				for(int i; i<360; i++) {
+				for(int i=0; i<360; i++) {
 					if (distance360[i]<minimum) {
 						minimum = distance360[i];
 						degre = i;
