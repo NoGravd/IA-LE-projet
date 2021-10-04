@@ -216,7 +216,7 @@ public class TestNono {
 
 		
 // ---------test nono 03/10		
-			testSe((float)0.2); //OK
+//			testSe((float)0.2); //OK
 //			avanceTQPression(); //nOK
 // ---------test nono 03/10		
 			
